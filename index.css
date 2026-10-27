@@ -740,7 +740,7 @@ h3 {
 }
 .cv-columns {
   display: grid;
-  grid-template-columns: 32% 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   gap: 22px;
 }
 .cv-sheet h3 {
@@ -868,8 +868,13 @@ h3 {
 .loading-terminal .eyebrow {
   display: block;
 }
-.project-dialog {
+.project-dialog:not([open]) {
+  display: none !important;
+}
+.project-dialog[open] {
   position: fixed;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
   max-width: min(680px, calc(100% - 32px));
   width: 100%;
   border: 1px solid var(--line);
@@ -906,8 +911,13 @@ h3 {
   color: var(--accent);
   margin-top: 12px;
 }
-.no-scroll {
-  overflow: hidden;
+/* Never lock document scrolling for the project dialog or CV preview. */
+html,
+body {
+  overflow-y: auto;
+}
+body.no-scroll {
+  overflow-y: auto !important;
 }
 @media (max-width: 980px) {
   .site-header {
@@ -1056,8 +1066,8 @@ h3 {
     flex-direction: column;
   }
   .cv-columns {
-    grid-template-columns: 1fr;
-    gap: 0;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 12px;
   }
   .cv-header h2 {
     font-size: 1.45rem;
@@ -1196,5 +1206,189 @@ h3 {
   .cv-sheet .cv-header a:focus-visible {
     color: #fff !important;
     text-decoration-color: #fff !important;
+  }
+}
+
+/* V4.1 job-description-driven CV verification */
+.cv-job-description {
+  width: 100%;
+  min-height: 150px;
+  resize: vertical;
+  margin: 8px 0 18px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  line-height: 1.6;
+}
+.cv-requirements {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+.cv-requirements > h3 {
+  margin-bottom: 0;
+}
+.requirement-card {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.requirement-card label,
+.cv-builder-panel > label {
+  display: block;
+  margin: 8px 0 5px;
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+.requirement-card textarea,
+.requirement-card select {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg, var(--surface));
+  color: var(--text);
+  font: inherit;
+  line-height: 1.5;
+}
+.requirement-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+@media (max-width: 560px) {
+  .requirement-fields {
+    grid-template-columns: 1fr;
+  }
+}
+@media print {
+  .cv-requirements,
+  #analyze-job,
+  #cv-job-description,
+  .cv-builder-panel > label {
+    display: none !important;
+  }
+}
+
+/* CV layout guard: left column is one-third, main column is two-thirds. */
+#cv-preview .cv-sheet {
+  width: 100%;
+  max-width: 760px;
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+#cv-preview .cv-sheet *,
+#cv-preview .cv-sheet *::before,
+#cv-preview .cv-sheet *::after {
+  box-sizing: border-box;
+}
+#cv-preview .cv-columns {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) !important;
+  align-items: start;
+  gap: 22px;
+  width: 100%;
+}
+#cv-preview .cv-columns > * {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.cv-search-actions {
+  margin-top: 16px;
+}
+.cv-search-actions .button {
+  width: 100%;
+  justify-content: center;
+}
+.job-scout-status {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 9px;
+  color: var(--text);
+  background: var(--surface);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+.job-scout-results {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+.job-card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  min-width: 0;
+}
+.job-card h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.job-card p {
+  margin: 6px 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.job-card .job-meta {
+  font-size: 0.76rem;
+}
+.job-card .job-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+  align-items: center;
+}
+.job-match-result {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+.job-match-result[data-result="pass"] {
+  border-left: 3px solid #65bd8b;
+}
+.job-match-result[data-result="fail"] {
+  border-left: 3px solid #e17b72;
+}
+.job-match-result[data-result="unknown"] {
+  border-left: 3px solid #d9ad55;
+}
+.job-match-result ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+  color: var(--muted);
+}
+@media (max-width: 560px) {
+  #cv-preview .cv-columns {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 10px;
+  }
+  .job-card .job-actions .button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media print {
+  .job-scout-results,
+  .job-scout-status {
+    display: none !important;
   }
 }

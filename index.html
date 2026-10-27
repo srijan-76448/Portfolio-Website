@@ -15,8 +15,8 @@
       href="assets/imgs/logo.webp"
       id="web-icon"
     />
-    <link rel="stylesheet" href="index.css" />
-    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="index.css?v=20261027-jobmatch1" />
+    <script src="index.js?v=20261027-jobmatch1" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -218,22 +218,24 @@
           </p>
         </div>
         <div class="cv-builder-panel">
-          <label for="cv-role">Target job role</label>
+          <label for="cv-role">Target job title</label>
           <div class="cv-input-row">
             <input
               id="cv-role"
               type="text"
               placeholder="e.g. Embedded Systems Engineer"
               autocomplete="organization-title"
-            /><button id="generate-cv" class="button" type="button">
-              Assess &amp; preview
-            </button>
+            />
           </div>
           <p class="form-hint">
-            Compatibility is a keyword-based estimate, not a hiring prediction.
-            Missing profile details are treated as undocumented, not as proof
-            you lack them.
+            Search supported public job feeds, compare each listing against the verified profile, and generate a tailored CV only when every identifiable mandatory requirement has evidence in your profile. No pasted job description is needed. If requirements are missing or uncertain, CV generation is blocked rather than guessed.
           </p>
+          <div class="cv-input-row cv-search-actions">
+            <button id="generate-cv" class="button" type="button">Find Matching Jobs &amp; Generate CV</button>
+          </div>
+          <div id="job-scout-status" class="job-scout-status" role="status" aria-live="polite" hidden></div>
+          <div id="job-scout-results" class="job-scout-results" aria-live="polite"></div>
+          <div id="cv-requirements" class="cv-requirements" hidden></div>
           <div
             id="cv-assessment"
             class="assessment"
