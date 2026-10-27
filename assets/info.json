@@ -75,9 +75,7 @@
     "EMBEDDED SYSTEMS & IOT": [
       "Arduino",
       "ATmega328P-U",
-      "ATtiny85",
       "ESP32",
-      "ESP8266",
       "Raspberry Pi"
     ],
     "ELECTRONICS & DESIGN": [
