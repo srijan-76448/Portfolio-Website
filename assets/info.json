@@ -2,8 +2,8 @@
   "PROFILE": {
     "name": "Srijan Bhattacharyya",
     "title": "Embedded Systems Engineer",
-    "about-me": "I am Srijan Bhattacharyya, an Embedded Systems Engineer with a passion for creating innovative solutions that bridge the gap between hardware and software. With a strong foundation in computer science and hands-on experience in designing and implementing embedded systems, I thrive on tackling complex challenges and delivering efficient, reliable, and scalable solutions. My expertise spans across various domains including IoT, robotics, and real-time systems. I am dedicated to continuous learning and staying updated with the latest advancements in technology to ensure that my work remains at the forefront of the industry. When I'm not immersed in coding or tinkering with hardware, I enjoy exploring new technologies, contributing to open-source projects, and sharing knowledge with the tech community.",
-    "short-description": null,
+    "about-me": "Computer Science and Engineering (Data Science) graduate focused on embedded systems, robotics, and the integration of hardware and software. Interested in building practical engineering systems spanning microcontrollers, connected devices, Linux-based platforms, and intelligent software. Current interests include autonomous robotics, embedded development, control systems, and bio-inspired flying robots. I value open engineering, iterative prototyping, systematic testing, and continuous learning.",
+    "short-description": "Embedded systems, robotics, and software engineering at the hardware–software boundary.",
     "profile-image": "assets/imgs/pfp.jpg"
   },
   "EDUCATION": [
@@ -23,31 +23,43 @@
   "PROJECTS": [
     {
       "name": "I.S.H.A (Integrated Systematic Heuristic Agent)",
-      "description": "ISHA is a multi-layered, open-source framework that bridges complex philosophy and psychology with AI and Robotics to achieve autonomous, human-like reasoning and goal-oriented evolution.",
-      "url": "https://isha.76448.org",
-      "image": null,
-      "status": null,
-      "technologies": []
+      "description": "An open-source, multi-layered framework exploring the intersection of philosophy, psychology, artificial intelligence, and robotics. The project aims to develop modular reasoning, goal-oriented behaviour, and an extensible foundation for intelligent systems.",
+      "url": null,
+      "status": "Development",
+      "technologies": [
+        "Python"
+      ]
     },
     {
       "name": "DevOS EcoSystem",
-      "description": "DevOS EcoSystem is a unified suite of operating systems for desktops, laptops, mobiles, wearables, Raspberry Pi, and cars. With a shared core, DevPKG manager, and OctaConn connectivity, it aims to support integration, customization, and inter-device communication across different platforms.",
+      "description": "A proposed ecosystem of operating systems and shared services for desktops, laptops, mobile devices, wearables, Raspberry Pi systems, and vehicles. Its planned components include a shared core, DevPKG package manager, and OctaConn connectivity layer for customization and cross-device integration.",
       "url": null,
-      "image": null,
       "status": null,
-      "technologies": []
+      "technologies": [
+        "Linux"
+      ]
     },
     {
       "name": "The AVR/ESP Programmer Board",
-      "description": "A compact hardware tool designed to program and communicate with AVR microcontrollers over ISP and ESP microcontrollers over UART, for robotics and IoT development workflows.",
+      "description": "A compact programmer-board project intended to support AVR microcontrollers through ISP and ESP microcontrollers through UART. Designed around practical microcontroller programming and communication workflows for embedded systems, robotics, and IoT experimentation.",
       "url": null,
-      "image": null,
       "status": null,
       "technologies": [
         "AVR",
         "ESP",
         "ISP",
         "UART"
+      ]
+    },
+    {
+      "name": "A.S.T.R.A (Autonomous System for Trading & Risk Analysis)",
+      "description": "A local-first market-analysis and risk-monitoring system focused primarily on Indian equity markets. It analyzes market data and technical indicators, monitors portfolio state and risk metrics, produces advisory BUY/SELL signals, records persistent telemetry, and supports notifications and reporting through integrations such as Telegram, email, and Google Sheets. Trade execution remains under human control.",
+      "url": null,
+      "status": "Development",
+      "technologies": [
+        "Python",
+        "yFinance",
+        "SmartAPI"
       ]
     }
   ],
@@ -135,35 +147,42 @@
     "socials": {
       "github": {
         "url": "https://github.com/srijan-76448",
+        "user-id": "srijan-76448",
         "icon": "github"
       },
       "linkedin": {
         "url": "https://www.linkedin.com/in/srijan76448/",
+        "user-id": "srijan76448",
         "icon": "linkedin"
       },
       "medium": {
         "url": "https://medium.com/@srijan-76448",
+        "user-id": "srijan-76448",
         "icon": "medium"
       },
       "instagram": {
         "url": "https://www.instagram.com/srijan.76448",
+        "user-id": "srijan.76448",
         "icon": "instagram"
       },
       "facebook": {
         "url": "https://www.facebook.com/srijan.76448",
+        "user-id": "srijan.76448",
         "icon": "facebook"
       },
       "x": {
         "url": "https://x.com/srijan76448",
+        "user-id": "srijan76448",
         "icon": "x"
       }
     },
-    "message": "Feel free to reach out to me via email or connect with me on social media!"
+    "message": "Feel free to reach out via email or connect with me on social media."
   },
   "CURRENT_FOCUS": [
     "Preparing for GATE 2027",
     "Embedded systems and robotics",
-    "Bio-inspired flying robots and control systems",
+    "Autonomous aerial robotics and bio-inspired flying robots",
+    "Embedded control systems",
     "Building practical, open engineering projects"
   ],
   "WORKING_PRINCIPLE": [
@@ -172,5 +191,37 @@
     "Test, measure, improve."
   ],
   "EXPERIENCE": [],
-  "ACHIEVEMENTS": []
+  "ACHIEVEMENTS": [],
+  "RESUME_PREFERENCES": {
+    "default-target-role": "Embedded Systems Engineer",
+    "primary-career-interests": [
+      "Embedded Systems Engineering",
+      "Robotics Engineering",
+      "Firmware Development",
+      "Hardware-Software Integration",
+      "Autonomous Systems"
+    ],
+    "content-policy": {
+      "never-invent-qualifications": true,
+      "never-invent-work-experience": true,
+      "never-invent-project-results": true,
+      "never-invent-academic-scores": true,
+      "never-invent-project-urls": true,
+      "preserve-source-evidence": true
+    },
+    "eligibility-policy": {
+      "require-job-description-for-detailed-mode": true,
+      "distinguish-mandatory-from-preferred-requirements": true,
+      "unknown-evidence-must-not-count-as-pass": true,
+      "block-generation-on-unresolved-mandatory-requirements": true,
+      "require-review-of-extracted-requirements": true
+    },
+    "matching-policy": {
+      "match-only-supported-skills-and-experience": true,
+      "prioritize-relevant-existing-projects": true,
+      "allow-reordering-of-existing-content": true,
+      "do-not-create-missing-experience": true,
+      "do-not-claim-eligibility-from-keyword-overlap-alone": true
+    }
+  }
 }

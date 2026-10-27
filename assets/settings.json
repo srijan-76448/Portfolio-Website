@@ -17,9 +17,11 @@
       "PROJECTS",
       "MEMBERSHIPS",
       "LANGUAGES",
-      "CONTACT"
+      "CONTACT",
+      "CV_BUILDER"
     ],
-    "sticky": true
+    "sticky": true,
+    "mobileMenu": true
   },
   "ANIMATIONS": {
     "enabled": true,
@@ -60,7 +62,7 @@
     "publicDataOnly": true
   },
   "AI": {
-    "enabled": true,
+    "enabled": false,
     "provider": "configureBeforeUse",
     "endpoint": "",
     "model": "",
@@ -68,7 +70,7 @@
     "neverExposeApiKeyInBrowser": true,
     "generation": {
       "shortDescription": {
-        "enabled": true,
+        "enabled": false,
         "source": [
           "PROFILE.about-me",
           "PROFILE.name",
@@ -87,7 +89,7 @@
         "fallbackToLastValid": true
       },
       "portfolioSummary": {
-        "enabled": true,
+        "enabled": false,
         "source": [
           "PROFILE.about-me",
           "EDUCATION",
@@ -99,15 +101,15 @@
         "fallbackToLastValid": true
       },
       "cv": {
-        "enabled": true,
+        "enabled": false,
         "jobRolePromptRequired": true,
         "preserveVerifiedFactsOnly": true,
-        "allowUserToContinueAfterMismatchWarning": true,
+        "allowUserToContinueAfterMismatchWarning": false,
         "showJobFitAssessment": true,
         "jobFitOutcomes": [
-          "goodMatch",
-          "partialMatch",
-          "poorOrUncertainMatch"
+          "PASS",
+          "FAIL",
+          "UNKNOWN"
         ],
         "generateJobSpecificSummary": true,
         "previewBeforeExport": true,
@@ -118,6 +120,14 @@
         "onePagePreferred": true
       }
     }
+  },
+  "DATA_SYNC": {
+    "github": {
+      "enabled": false,
+      "refreshIntervalMinutes": 60,
+      "publicDataOnly": true
+    },
+    "failureBehavior": "retainLastValidData"
   },
   "PORTFOLIO": {
     "shortDescriptionSource": "PROFILE.short-description",
@@ -132,12 +142,87 @@
   },
   "CV": {
     "enabled": true,
+    "defaultMode": "quick",
+    "modes": {
+      "quick": {
+        "enabled": true,
+        "jobDescriptionRequired": false,
+        "targetRoleRequired": false,
+        "useVerifiedProfileData": true,
+        "allowPreview": true,
+        "allowPdfExport": true
+      },
+      "detailed": {
+        "enabled": true,
+        "jobDescriptionRequired": true,
+        "targetRoleRequired": true,
+        "extractRequirements": true,
+        "reviewExtractedRequirements": true,
+        "preserveOriginalJobDescription": true,
+        "classifyRequirements": [
+          "MANDATORY",
+          "PREFERRED",
+          "AMBIGUOUS"
+        ],
+        "verifyAgainstProfileEvidence": true,
+        "allowManualEvidenceReview": true,
+        "allowRequirementCorrection": true,
+        "blockGenerationOnMandatoryFail": true,
+        "blockGenerationOnMandatoryUnknown": true,
+        "allowPreviewBeforeEligibilityPass": false,
+        "allowPdfExportBeforeEligibilityPass": false
+      }
+    },
     "template": "tealTwoColumn",
     "headerAccent": "#178C8C",
     "pageSize": "A4",
     "onePagePreferred": true,
     "allowPreview": true,
-    "allowPdfExport": true
+    "allowPdfExport": true,
+    "eligibility": {
+      "enabled": true,
+      "outcomes": [
+        "PASS",
+        "FAIL",
+        "UNKNOWN"
+      ],
+      "mandatoryRequirementsMustPass": true,
+      "unknownEvidenceMustNotCountAsPass": true,
+      "preferredRequirementsCanAffectRanking": true,
+      "ambiguousRequirementsRequireReview": true,
+      "keywordOverlapIsNotProof": true,
+      "requireEvidenceForQualificationClaims": true,
+      "neverInventQualifications": true,
+      "neverInventWorkExperience": true,
+      "neverInventProjectResults": true,
+      "neverInventAcademicScores": true,
+      "neverInventCertifications": true,
+      "neverInventProjectUrls": true
+    },
+    "matching": {
+      "enabled": true,
+      "matchOnlySupportedSkills": true,
+      "prioritizeRelevantProjects": true,
+      "reorderExistingContent": true,
+      "allowRoleSpecificSummary": true,
+      "preserveVerifiedFactsOnly": true,
+      "doNotCreateMissingExperience": true,
+      "doNotInferEligibilityFromKeywordsAlone": true
+    },
+    "preview": {
+      "requireEligibilityPassInDetailedMode": true,
+      "showRelevantSkills": true,
+      "showRelevantProjects": true,
+      "showEducation": true,
+      "showExperienceOnlyWhenAvailable": true,
+      "hideEmptySections": true
+    },
+    "export": {
+      "format": "pdf",
+      "method": "browserPrint",
+      "requireEligibilityPassInDetailedMode": true,
+      "requirePreview": true
+    }
   },
   "ACCESSIBILITY": {
     "respectReducedMotion": true,
