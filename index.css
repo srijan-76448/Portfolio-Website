@@ -1,4 +1,3 @@
-
 /* ============================================================
    ENGINEERING PORTFOLIO
    Fixed overhead navigation · Responsive layout · A4 CV
@@ -1097,11 +1096,7 @@ h3 {
 .contact-form textarea:focus {
   border-color: var(--accent);
 
-  box-shadow: 0 0 0 3px color-mix(
-    in srgb,
-    var(--accent) 15%,
-    transparent
-  );
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
 }
 
 .form-hint {
@@ -1537,11 +1532,7 @@ h3 {
   .site-nav a {
     padding: 12px 4px;
 
-    border-bottom: 1px solid color-mix(
-      in srgb,
-      var(--line) 70%,
-      transparent
-    );
+    border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
 
     font-size: 0.85rem;
   }
@@ -1811,5 +1802,215 @@ h3 {
   .cv-preview {
     padding: 0;
     box-shadow: none;
+  }
+}
+
+/* ============================================================
+   SINGLE-PAGE A4 CV — PREVIEW AND PRINT
+   A4 dimensions: 210 × 297 mm
+   ============================================================ */
+
+/* On-screen CV preview area */
+#cv-preview:not([hidden]) {
+  width: 100%;
+  max-width: 100%;
+  margin: 24px auto 0;
+  padding: 24px;
+  overflow-x: auto;
+}
+
+/* The actual A4 page */
+#cv-preview .cv-sheet {
+  box-sizing: border-box;
+
+  width: 210mm;
+  min-width: 210mm;
+  max-width: 210mm;
+
+  height: 297mm;
+  min-height: 297mm;
+  max-height: 297mm;
+
+  margin: 0 auto;
+  padding: 0;
+
+  overflow: hidden;
+  background: #ffffff;
+  color: #20282b;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9pt;
+  line-height: 1.3;
+}
+
+/* Header remains inside the page dimensions */
+#cv-preview .cv-header {
+  margin: 0 0 5mm;
+  padding: 7mm 8mm;
+
+  background: #178c8c;
+  color: #ffffff;
+
+  overflow-wrap: anywhere;
+}
+
+#cv-preview .cv-header h2 {
+  margin: 0 0 2mm;
+  font-size: 22pt;
+  line-height: 1.15;
+}
+
+#cv-preview .cv-header p {
+  margin: 1mm 0;
+  font-size: 8pt;
+  line-height: 1.35;
+}
+
+/* Two-column CV content */
+#cv-preview .cv-columns {
+  display: grid;
+  grid-template-columns: 32% minmax(0, 1fr);
+  gap: 6mm;
+
+  padding: 0 8mm 6mm;
+}
+
+#cv-preview .cv-left-column,
+#cv-preview .cv-right-column {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+#cv-preview .cv-sheet h3 {
+  margin: 3mm 0 2mm;
+  padding-bottom: 1.2mm;
+
+  border-bottom: 0.3mm solid #b9c6c6;
+
+  color: #147b7b;
+
+  font-size: 9pt;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+}
+
+#cv-preview .cv-sheet h4 {
+  margin: 2mm 0 1mm;
+
+  color: #243337;
+  font-size: 8pt;
+  line-height: 1.25;
+}
+
+#cv-preview .cv-sheet p,
+#cv-preview .cv-sheet li {
+  margin-top: 0;
+  margin-bottom: 1.5mm;
+
+  font-size: 7.5pt;
+  line-height: 1.35;
+}
+
+#cv-preview .cv-sheet ul {
+  margin: 1mm 0 2mm;
+  padding-left: 4mm;
+}
+
+#cv-preview .cv-sheet .cv-muted {
+  color: #526064;
+}
+
+/* Scale the A4 preview to fit smaller browser windows */
+@media screen {
+  #cv-preview .cv-sheet {
+    transform-origin: top left;
+  }
+}
+
+/* Actual paper/PDF dimensions */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  html,
+  body {
+    width: 210mm !important;
+    min-width: 0 !important;
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: #ffffff !important;
+    overflow: visible !important;
+  }
+
+  #cv-builder,
+  .cv-builder-panel,
+  #cv-preview:not([hidden]) {
+    display: block !important;
+
+    width: 210mm !important;
+    max-width: none !important;
+    min-width: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  #cv-preview .cv-sheet {
+    box-sizing: border-box !important;
+
+    width: 210mm !important;
+    min-width: 0 !important;
+    max-width: none !important;
+
+    height: 297mm !important;
+    min-height: 0 !important;
+    max-height: 297mm !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden !important;
+
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  #cv-preview .cv-header {
+    margin: 0 0 5mm !important;
+    padding: 7mm 8mm !important;
+
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  #cv-preview .cv-columns {
+    padding: 0 8mm 6mm !important;
+  }
+
+  .site-header,
+  .site-footer,
+  .project-dialog,
+  #particleAccelerator,
+  .loading-screen,
+  .section-heading,
+  .cv-builder-panel > label,
+  .cv-input-row,
+  .form-hint,
+  .assessment,
+  .cv-actions {
+    display: none !important;
   }
 }
