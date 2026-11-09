@@ -31,15 +31,6 @@
       ]
     },
     {
-      "name": "DevOS EcoSystem",
-      "description": "A proposed ecosystem of operating systems and shared services for desktops, laptops, mobile devices, wearables, Raspberry Pi systems, and vehicles. Its planned components include a shared core, DevPKG package manager, and OctaConn connectivity layer for customization and cross-device integration.",
-      "url": null,
-      "status": null,
-      "technologies": [
-        "Linux"
-      ]
-    },
-    {
       "name": "The AVR/ESP Programmer Board",
       "description": "A compact programmer-board project intended to support AVR microcontrollers through ISP and ESP microcontrollers through UART. Designed around practical microcontroller programming and communication workflows for embedded systems, robotics, and IoT experimentation.",
       "url": null,
