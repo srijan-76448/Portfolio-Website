@@ -1304,29 +1304,12 @@
   }
 
   function orderedSkills(role) {
-    return Object.entries(skills)
-      .map(([category, values], categoryIndex) => ({
-        category,
-        categoryIndex,
-        items: (Array.isArray(values) ? values : [])
-          .map((item, index) => ({
-            item: String(item),
-            index,
-            score: relevancePercent(`${category} ${item}`, role),
-          }))
-          .filter((entry) => entry.score >= SKILL_MATCH_THRESHOLD)
-          .sort((a, b) => b.score - a.score || a.index - b.index),
-      }))
-      .filter((section) => section.items.length)
-      .sort(
-        (a, b) =>
-          b.items.length - a.items.length || a.categoryIndex - b.categoryIndex,
-      )
-      .slice(0, 5)
-      .map((section) => ({
-        category: section.category,
-        items: section.items.slice(0, 8).map((entry) => entry.item),
-      }));
+    // Preserve every documented skill.
+    // No relevance filtering, ranking, or automatic shortening.
+    return Object.entries(skills).map(([category, values]) => ({
+      category,
+      items: Array.isArray(values) ? [...values] : [],
+    }));
   }
 
   function orderedProjects(role) {
